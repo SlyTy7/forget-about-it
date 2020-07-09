@@ -15,6 +15,13 @@
 
 .App-body {
   height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+.App-body ul {
+  list-style: none;
 }
 
 .App-footer {
