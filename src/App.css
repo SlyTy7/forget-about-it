@@ -14,7 +14,7 @@
 }
 
 .App-body {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 160px);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
