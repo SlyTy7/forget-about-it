@@ -46,34 +46,29 @@ class Body extends React.Component {
     };
   }
 
-  handleItemClick = (item) => {
-    if(!item.completed){
-      let todoItems = this.state.todoItems;
-      let doneItems = this.state.doneItems;
-      let index = todoItems.indexOf(item);
+  handleItemClick = item => {
+    let index;
+    let todoItems = this.state.todoItems;
+    let doneItems = this.state.doneItems;
 
-      item.completed = !item.completed;
-      todoItems.splice(index, 1);
-      doneItems.push(item);
-      
-      this.setState({
-        todoItems: todoItems,
-        doneItems: doneItems
-      })
-    } else {
-      let todoItems = this.state.todoItems;
-      let doneItems = this.state.doneItems;
-      let index = doneItems.indexOf(item);
-
-      item.completed = !item.completed;
+    // checks if item is completed and changes list
+    if(item.completed){
+      index = doneItems.indexOf(item);
       todoItems.push(item);
       doneItems.splice(index, 1);
-
-      this.setState({
-        todoItems: todoItems,
-        doneItems: doneItems
-      })
+    } else {
+      index = todoItems.indexOf(item);
+      todoItems.splice(index, 1);
+      doneItems.push(item);
     }
+    
+    // toggles compelted state
+    item.completed = !item.completed;
+
+    this.setState({
+      todoItems: todoItems,
+      doneItems: doneItems
+    })
   };
 
   render() {
