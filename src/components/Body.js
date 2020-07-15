@@ -1,7 +1,7 @@
 import React from "react";
 import List from "./List.js";
 
-const createRandomId = () => {
+const createItemId = () => {
   let date = Date.now();
   let random = Math.floor(Math.random() * 1000);
   let id = `item-id-${random * date}`;
@@ -18,29 +18,29 @@ class Body extends React.Component {
         {
           title: "Buy Groceries",
           completed: false,
-          id: createRandomId()
+          id: createItemId()
         },
         {
           title: "Do Laundry",
           completed: false,
-          id: createRandomId()
+          id: createItemId()
         },
         {
           title: "Pay Cell Phone Bill",
           completed: false,
-          id: createRandomId()
+          id: createItemId()
         },
         {
           title: "Send Email",
           completed: false,
-          id: createRandomId()
+          id: createItemId()
         }
       ],
       doneItems: [
         {
           title: "Call Clients",
           completed: true,
-          id: createRandomId()
+          id: createItemId()
         }
       ]
     };
@@ -61,7 +61,7 @@ class Body extends React.Component {
       todoItems.splice(index, 1);
       doneItems.push(item);
     }
-    
+
     // toggles compelted state
     item.completed = !item.completed;
 
