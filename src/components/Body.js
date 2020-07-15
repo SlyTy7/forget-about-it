@@ -7,7 +7,7 @@ const createItemId = () => {
   let id = `item-id-${random * date}`;
 
   return id;
-}
+};
 
 class Body extends React.Component {
   constructor(props) {
@@ -18,41 +18,41 @@ class Body extends React.Component {
         {
           title: "Buy Groceries",
           completed: false,
-          id: createItemId()
+          id: createItemId(),
         },
         {
           title: "Do Laundry",
           completed: false,
-          id: createItemId()
+          id: createItemId(),
         },
         {
           title: "Pay Cell Phone Bill",
           completed: false,
-          id: createItemId()
+          id: createItemId(),
         },
         {
           title: "Send Email",
           completed: false,
-          id: createItemId()
-        }
+          id: createItemId(),
+        },
       ],
       doneItems: [
         {
           title: "Call Clients",
           completed: true,
-          id: createItemId()
-        }
-      ]
+          id: createItemId(),
+        },
+      ],
     };
   }
 
-  handleItemClick = item => {
+  handleItemClick = (item) => {
     let index;
     let todoItems = this.state.todoItems;
     let doneItems = this.state.doneItems;
 
     // checks if item is completed and changes list
-    if(item.completed){
+    if (item.completed) {
       index = doneItems.indexOf(item);
       todoItems.push(item);
       doneItems.splice(index, 1);
@@ -67,21 +67,23 @@ class Body extends React.Component {
 
     this.setState({
       todoItems: todoItems,
-      doneItems: doneItems
-    })
+      doneItems: doneItems,
+    });
   };
 
   render() {
     return (
       <div className="App-body">
-        <List
-          items={this.state.todoItems}
-          handleItemClick={item => this.handleItemClick(item)}
-        />
-        <List
-          items={this.state.doneItems}
-          handleItemClick={item => this.handleItemClick(item)}
-        />
+        <div className="lists-container">
+          <List
+            items={this.state.todoItems}
+            handleItemClick={(item) => this.handleItemClick(item)}
+          />
+          <List
+            items={this.state.doneItems}
+            handleItemClick={(item) => this.handleItemClick(item)}
+          />
+        </div>
       </div>
     );
   }
